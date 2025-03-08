@@ -26,7 +26,7 @@ export class ProductsService {
    }
 
 
-   getproductDetails(Id:string):Observable<any>
+   getproductDetails(Id:string|null):Observable<any>
    {
     return this._httpclint.get(this.baseurl+"products/"+Id);
    }
