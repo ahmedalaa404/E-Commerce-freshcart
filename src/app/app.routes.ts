@@ -7,9 +7,28 @@ import { CategoreyComponent } from './features/categorey/components/categorey/ca
 import { CartComponent } from './features/cart/components/cart/cart.component';
 import { NotfoundComponent } from './core/auth/components/notfound/notfound.component';
 import { AuthLayoutComponent } from './core/layouts/auth-layout/auth-layout.component';
-import { UserComponent } from './core/layouts/user/user.component';
+import { MainLayoutComponent } from './core/layouts/main-layout/main-layout.component';
+import { ProductListComponent } from './features/product/components/product-list/product-list.component';
+import { BrandListComponent } from './features/Brand/components/brand-list/brand-list.component';
+import { ProductDetailsComponent } from './features/product/components/product-details/product-details.component';
 
 export const routes: Routes = [
+  {
+    path: '', component: MainLayoutComponent, children:
+    [
+      { path: '', redirectTo: 'home', pathMatch: 'full'},
+
+        {path: 'home', component: HomeComponent},
+        {path: 'categorey', component: CategoreyComponent},
+        {path: 'cart', component: CartComponent},
+        {path: 'product', component: ProductListComponent},
+        {path: 'brands', component: BrandListComponent},
+        {path: 'product-details/:id', component: ProductDetailsComponent},
+        {path: '**', component: NotfoundComponent},
+
+    ]
+},
+
     {
         path: 'auth', component: AuthLayoutComponent, children: [
             { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -17,15 +36,7 @@ export const routes: Routes = [
             { path: 'register', component: RegisterComponent },
         ]
     },
-    {
-        path: 'user', component: UserComponent, children:
-        [
-            {path: 'home', component: HomeComponent},
-            {path: 'categorey', component: CategoreyComponent},
-            {path: 'cart', component: CartComponent},
 
-        ]
-    },
 
     {path:'**',component:NotfoundComponent }
 ];
