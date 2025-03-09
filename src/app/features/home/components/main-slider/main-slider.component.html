@@ -1,1 +1,10 @@
-<p>main-slider works!</p>
+<div class="h-[35vh]">
+  <owl-carousel-o [options]="customOptions" class="h-full">
+
+    <ng-container *ngFor="let slide of slidesStore">
+      <ng-template carouselSlide [id]="slide">
+        <img [src]="slide" class="w-full h-full object-cover">
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+</div>
