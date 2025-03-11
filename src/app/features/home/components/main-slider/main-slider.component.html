@@ -1,9 +1,8 @@
-<div class="h-[35vh]">
+<div class="h-[35vh] pb-10"> <!-- Add padding-bottom -->
   <owl-carousel-o [options]="customOptions" class="h-full">
-
     <ng-container *ngFor="let slide of slidesStore">
       <ng-template carouselSlide [id]="slide">
-        <img [src]="slide" class="w-full h-full object-cover">
+        <img [src]="slide" class="w-full h-[35vh] object-cover">
       </ng-template>
     </ng-container>
   </owl-carousel-o>

@@ -13,6 +13,17 @@ import { BrandListComponent } from './features/Brand/components/brand-list/brand
 import { ProductDetailsComponent } from './features/product/components/product-details/product-details.component';
 
 export const routes: Routes = [
+
+
+  {
+    path: '', component: AuthLayoutComponent, children: [
+        { path: '', redirectTo: 'login', pathMatch: 'full' },
+        { path: 'login', component: LoginComponent },
+        { path: 'register', component: RegisterComponent },
+    ]
+},
+
+
   {
     path: '', component: MainLayoutComponent, children:
     [
@@ -29,13 +40,6 @@ export const routes: Routes = [
     ]
 },
 
-    {
-        path: 'auth', component: AuthLayoutComponent, children: [
-            { path: '', redirectTo: 'login', pathMatch: 'full' },
-            { path: 'login', component: LoginComponent },
-            { path: 'register', component: RegisterComponent },
-        ]
-    },
 
 
     {path:'**',component:NotfoundComponent }

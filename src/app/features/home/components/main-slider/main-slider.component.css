@@ -1,0 +1,6 @@
+::ng-deep .owl-stage-outer {
+  height: 35vh !important;
+}
+::ng-deep .owl-item {
+  height: 35vh !important;
+}

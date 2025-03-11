@@ -1,1 +1,67 @@
-<p>register works!</p>
+<div class="container">
+  <form class="max-w-sm mx-auto" [formGroup]="authform" (ngSubmit)="onSubmit()">
+
+
+
+
+    <div class="mb-5">
+      <label for="name" class="main-label" >Your name</label>
+      <input type="text" id="name" formControlName="name" class="main-input" required />
+
+
+        <div>
+          <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+            <span class="font-medium">Danger alert!</span> Change a few things up and try submitting again.
+          </div>
+        </div>
+    </div>
+  
+
+
+
+
+    <div class="mb-5">
+      <label for="email" class="main-label" >Email</label>
+      <input type="email" id="email" formControlName="email" class="main-input" required />
+
+
+        <div>
+          <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+            <span class="font-medium">Danger alert!</span> Change a few things up and try submitting again.
+          </div>
+        </div>
+    </div>
+
+    <div class="mb-5">
+      <label for="password" class="main-label" >password</label>
+      <input type="password" id="password" formControlName="name" class="main-input" required />
+
+
+        <div>
+          <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+            <span class="font-medium">Danger alert!</span> Change a few things up and try submitting again.
+          </div>
+        </div>
+    </div>
+
+
+    <div class="mb-5">
+      <label for="rePassword" class="main-label" >re-password</label>
+      <input type="password" id="repassword" formControlName="repassword" class="main-input" required />
+
+
+        <div>
+          <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+            <span class="font-medium">Danger alert!</span> Change a few things up and try submitting again.
+          </div>
+        </div>
+    </div>
+
+
+
+    <button type="submit"  class="w-full focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Register</button>
+  </form >
+
+  </div>
+
+
