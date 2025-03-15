@@ -35,17 +35,18 @@ login()
 {
   if(this.authform.valid&&!this.isloading)
   {
+    console.log(this.authform.value);
     this.isloading=true;
    this.AuthServices.login(this.authform.value).subscribe({
       next:(res)=>{
         this.isloading=false;
+       this.AuthServices.saveToken(res.token);
        this. router.navigate(['/home'])
       },
       error:(err)=>{
+        console.log(err);
         this.messageError=err.error.message;
         this.isloading=false;
-
-        console.log(err)
       }
    })
   }

@@ -104,25 +104,34 @@
 <ul
   class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-200 rounded-lg  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
 
-  <li>
-    <a
-      class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">logout
-    </a>
-  </li>
 
 
   <li>
-    <a
-      class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">cart
-    </a>
-  </li>
 
+    <button routerLink="cart" type="button" class="relative flex items-center gap-2 px-4 py-3 text-sm font-medium text-white  rounded-lg hover:bg-main-800 focus:ring-4 focus:outline-none bg-gray-300 cursor-pointer hover:bg-mint-800 group">
+
+
+      <!-- Cart Text -->
+      <span class="text-base font-semibold text-mint-800 group-hover:text-white">Cart</span>
+      <!-- Cart Icon -->
+      <i class="fa-solid fa-cart-shopping text-mint-800 group-hover:text-white" ></i>
+
+
+      <!-- Notification Badge (Cart Count) -->
+      <div class="absolute flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-mint-800 border-2 border-white rounded-full -top-2 -end-2 dark:border-gray-900">
+        20
+      </div>
+    </button>
+
+
+  </li>
 
   <li>
-    <a
-      class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">wichless
-    </a>
-  </li>
+    <button (click)="logout()" type="button" class="cursor-pointer focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-3   dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">logout</button>
+    </li>
+
+
+
 </ul>
 
 }
