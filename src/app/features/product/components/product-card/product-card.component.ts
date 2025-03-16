@@ -1,7 +1,7 @@
-import { CartService } from './../../../cart/services/cart.service';
-import { Component, inject, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output,  } from '@angular/core';
 import { product } from '../../models/product';
 import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-product-card',
@@ -11,16 +11,12 @@ import { RouterLink } from '@angular/router';
 })
 export class ProductCardComponent {
   @Input() product!: product;
-  private readonly CartServices = inject(CartService);
+  @Output() OnAddCartProduct = new EventEmitter<string>()
 
-  addTocart(id: string) {
-    this.CartServices.addProductToCart(id).subscribe({
-      next: (resulte) => {
-        console.log(resulte);
-      },
-      error: (resulte) => {
-        console.log(resulte);
-      },
-    });
+  onAddCart()
+  {
+    this.OnAddCartProduct.emit(this.product._id);
   }
+
+
 }
