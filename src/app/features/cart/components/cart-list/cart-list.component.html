@@ -1,11 +1,32 @@
-<section>
-  <div class="container mx-auto p-9  bg-gray-200 my-5">
-    <h3 class="text-3xl font-bold my-3">Shop Cart</h3>
-      <p class="text-mint-800">total cart price :{{cartDetails.data.totalCartPrice}}L.E </p>
+@if (isloading) {
+
+  <section>
+    <div class="container mx-auto p-9  bg-gray-200 my-5 rounded-4xl">
+      <h3 class="text-3xl font-bold my-3">Shop Cart</h3>
+        <p class="text-mint-800">total cart price :{{cartDetails.data?.totalCartPrice}}L.E </p>
+
+
+
+        @for (item of cartDetails.data?.products; track $index) {
+
+          <app-cart-item [product]="item" (productId)="removeProduct($event)"></app-cart-item>
+        }
 
 
 
 
 
-    </div>
-</section>
+      <div class="flex justify-between p-6">
+        <button class="main-btn opacity-100 w-auto" [routerLink]="['/product']" routerLinkActive="router-link-active" >continue to shopping </button>
+        <button class="main-btn opacity-100  w-auto"  [routerLink]="['/Checkout']" >Go To Checkout <span class="my-2">{{cartDetails.data.totalCartPrice}}</span>LE </button>
+      </div>
+      </div>
+
+
+
+  </section>
+
+}
+@else {
+  <h3 class="text-main">loading . . . . </h3>
+}

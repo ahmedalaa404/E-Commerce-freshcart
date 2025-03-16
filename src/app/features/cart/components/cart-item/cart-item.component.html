@@ -1,1 +1,26 @@
-<p>cart-item works!</p>
+<div class="grid grid-cols-12 p-5 gap-5 my-5 border-b-gray-300 border-b-1 ">
+  <div class="col-span-1">
+    <img [src]="product.product?.imageCover" class="w-full">
+  </div>
+
+
+  <div class="col-span-11 flex justify-between">
+
+    <div>
+      <h4 class="font-bold">{{product.product.title}}</h4>
+      <span class="text-mint-800 block my-3">price :: {{product.price}}</span>
+      <button class="cursor-pointer" (click)="removeItem()">
+        <i class="fa-solid fa-trash text-mint-800"></i>
+        Remove </button>
+
+    </div>
+
+      <div>
+        <button class="border border-main p-4 rounded-2xl cursor-pointer">+</button>
+        <button class="mx-5">{{product.count}}</button>
+        <button class="border border-main p-4  rounded-2xl cursor-pointer">-</button>
+      </div>
+  </div>
+
+
+</div>
