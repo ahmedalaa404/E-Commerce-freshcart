@@ -9,7 +9,7 @@
 
         @for (item of cartDetails.data?.products; track $index) {
 
-          <app-cart-item [product]="item" (productId)="removeProduct($event)"></app-cart-item>
+          <app-cart-item [product]="item" (productId)="removeProduct($event)"   (updateProductQuantity)="updateQuantity($event.id,$event.count)" ></app-cart-item>
         }
 
 

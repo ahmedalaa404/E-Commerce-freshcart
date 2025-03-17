@@ -39,6 +39,7 @@ removeProduct(id:string)
 {
   this.cartServices.removeCartItem(id).subscribe({
     next:(responce)=>{
+      this.cartDetails=responce;
       console.log(responce)
     }
     ,
@@ -49,7 +50,19 @@ removeProduct(id:string)
   })
 }
 
+updateQuantity(id:string,count:number)
+{
+  this.cartServices.UpdateCart(count,id).subscribe({
+    next:(responce)=>{
+      this.cartDetails=responce;
 
+      console.log(responce)
+    },
+    error:(responce)=>{
+      console.log(responce)
+    }
+  })
+}
 
 
 
