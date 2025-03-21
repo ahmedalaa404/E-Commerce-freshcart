@@ -12,6 +12,8 @@ import { ProductDetailsComponent } from './features/product/components/product-d
 import { authGuard } from './core/guards/auth.guard';
 import { isloggedGuard } from './core/guards/islogged.guard';
 import { CartListComponent } from './features/cart/components/cart-list/cart-list.component';
+import { CheckoutComponent } from './features/Orders/Component/checkout/checkout.component';
+import { OrdersComponent } from './features/Orders/Component/orders/orders.component';
 
 
 export const routes: Routes = [
@@ -38,7 +40,11 @@ export const routes: Routes = [
       { path: 'cart', component: CartListComponent },
       { path: 'product', component: ProductListComponent },
       { path: 'brands', component: BrandListComponent },
+      { path: 'Checkout/:id', component: CheckoutComponent   },
       { path: 'product-details/:id', component: ProductDetailsComponent },
+      { path: 'allorders', component: OrdersComponent },
+      
+
       { path: '**', component: NotfoundComponent },
     ],
   },
