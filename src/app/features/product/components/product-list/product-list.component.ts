@@ -31,6 +31,8 @@ export class ProductListComponent {
   getAllProducts() {
     this.ProductsService.getproducts().subscribe((data) => {
       this.allProduct = data.data;
+
+      
     });
   }
   private readonly CartServices = inject(CartService);
@@ -38,6 +40,7 @@ export class ProductListComponent {
   addToCart(id: string) {
     this.CartServices.addProductToCart(id).subscribe({
       next: (resulte) => {
+        this.CartServices.Counter.next(resulte.numOfCartItems )  ;
         this.showSuccess();
         console.log(resulte);
       },

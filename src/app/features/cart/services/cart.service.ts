@@ -1,15 +1,18 @@
 import { AuthService } from './../../../core/auth/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
+
+  Counter:BehaviorSubject<number>=new BehaviorSubject<number>(0);
   private readonly AuthService = inject(AuthService);
   constructor(private HttpClient: HttpClient) {}
+
 
   addProductToCart(ProductId: String): Observable<any> {
     return this.HttpClient.post(
