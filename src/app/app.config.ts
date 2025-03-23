@@ -1,3 +1,4 @@
+import { DefaultLangChangeEvent } from './../../node_modules/@ngx-translate/core/lib/translate.service.d';
 import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
@@ -29,9 +30,10 @@ export const appConfig: ApplicationConfig = {
      importProvidersFrom(BrowserAnimationsModule),
      provideToastr(),
      importProvidersFrom(NgxSpinnerModule,TranslateModule.forRoot({
-
+      defaultLanguage:'ar',
 
       loader:{
+
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]

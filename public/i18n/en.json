@@ -5,6 +5,9 @@
     "product": "Product",
     "category": "Category",
     "brands": "Brands",
-    "cart": "Cart"
+    "cart": "Cart",
+    "logout":"logout",
+    "login":"login",
+    "register":"register"
   }
 }
