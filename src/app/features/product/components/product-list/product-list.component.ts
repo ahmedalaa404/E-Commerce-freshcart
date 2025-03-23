@@ -4,18 +4,20 @@ import { Component, inject } from '@angular/core';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { CartService } from '../../../cart/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
+import { SearchPipe } from '../../../../shared/pipes/search.pipe';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-product-list',
-  imports: [ProductCardComponent],
+  imports: [ProductCardComponent,SearchPipe,FormsModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css',
 })
 export class ProductListComponent {
   private readonly ProductsService = inject(ProductsService);
   private readonly toastr = inject(ToastrService);
-
+    valueSearch:string="";
   allProduct: product[] = [];
 
 
@@ -32,7 +34,7 @@ export class ProductListComponent {
     this.ProductsService.getproducts().subscribe((data) => {
       this.allProduct = data.data;
 
-      
+
     });
   }
   private readonly CartServices = inject(CartService);
