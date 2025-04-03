@@ -15,7 +15,7 @@ export class MainLayoutComponent {
 
   showButton:boolean = false; // property to show/hide button
 
-  @HostListener('window:scroll') scrollTotOP(){ // method Decoratore
+  @HostListener('window:scroll') scrollTotOP(){ // method Decorator
     const scrollTop = document.documentElement.scrollTop;
 
 
