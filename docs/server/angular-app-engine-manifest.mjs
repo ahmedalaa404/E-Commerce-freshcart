@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/',
+  basePath: '/E-Commerce-freshcart',
   supportedLocales: {
   "en-US": ""
 },

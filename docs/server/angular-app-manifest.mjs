@@ -2,62 +2,62 @@
 export default {
   bootstrap: () => import('./main.server.mjs').then(m => m.default),
   inlineCriticalCss: true,
-  baseHref: '',
+  baseHref: '/E-Commerce-freshcart/',
   locale: undefined,
   routes: [
   {
     "renderMode": 1,
-    "route": "/"
+    "route": "/E-Commerce-freshcart"
   },
   {
     "renderMode": 1,
-    "route": "/login"
+    "route": "/E-Commerce-freshcart/login"
   },
   {
     "renderMode": 1,
-    "route": "/register"
+    "route": "/E-Commerce-freshcart/register"
   },
   {
     "renderMode": 1,
-    "route": "/home"
+    "route": "/E-Commerce-freshcart/home"
   },
   {
     "renderMode": 1,
-    "route": "/categorey"
+    "route": "/E-Commerce-freshcart/categorey"
   },
   {
     "renderMode": 1,
-    "route": "/cart"
+    "route": "/E-Commerce-freshcart/cart"
   },
   {
     "renderMode": 1,
-    "route": "/product"
+    "route": "/E-Commerce-freshcart/product"
   },
   {
     "renderMode": 1,
-    "route": "/brands"
+    "route": "/E-Commerce-freshcart/brands"
   },
   {
     "renderMode": 1,
-    "route": "/Checkout/*"
+    "route": "/E-Commerce-freshcart/Checkout/*"
   },
   {
     "renderMode": 1,
-    "route": "/product-details/*"
+    "route": "/E-Commerce-freshcart/product-details/*"
   },
   {
     "renderMode": 1,
-    "route": "/allorders"
+    "route": "/E-Commerce-freshcart/allorders"
   },
   {
     "renderMode": 1,
-    "route": "/**"
+    "route": "/E-Commerce-freshcart/**"
   }
 ],
   entryPointToBrowserMapping: undefined,
   assets: {
-    'index.csr.html': {size: 7733, hash: 'b4c3b32b5f33d31763b1fb9d662336ca386eaa4305cc18441b2abf9216e9b2df', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 1057, hash: '17c17d535cefdabfe5607b51f8ec359f646f268f94ec73345014a45022a06a27', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'index.csr.html': {size: 7755, hash: 'f32a4a76bc0985521cd536abfa68d23b124e1ea1231c694e1c8b9967fad132b7', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 1079, hash: 'a173f9abb356caed5f5cad33a8fbd66f3e853aa31431e86caf92c4f4a577d90d', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
     'styles-DS3RBIU6.css': {size: 188619, hash: 'WlfmQ/eyH9o', text: () => import('./assets-chunks/styles-DS3RBIU6_css.mjs').then(m => m.default)}
   },
 };
