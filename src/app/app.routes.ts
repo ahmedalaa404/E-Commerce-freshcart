@@ -43,7 +43,7 @@ export const routes: Routes = [
       { path: 'Checkout/:id', component: CheckoutComponent   },
       { path: 'product-details/:id', component: ProductDetailsComponent },
       { path: 'allorders', component: OrdersComponent },
-      
+
 
       { path: '**', component: NotfoundComponent },
     ],
