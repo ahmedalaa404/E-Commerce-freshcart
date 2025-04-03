@@ -26,7 +26,7 @@ export class CartListComponent {
       next: (repsonce) => {
         this.cartDetails = repsonce;
         this.isloading = true;
-        this.cartServices.Counter.next(repsonce.numOfCartItems )  ;
+        this.cartServices.Counter.set(repsonce.numOfCartItems )  ;
         console.log(repsonce);
       },
       error: (repsonce) => {
@@ -39,7 +39,7 @@ export class CartListComponent {
     this.cartServices.removeCartItem(id).subscribe({
       next: (responce) => {
         this.cartDetails = responce;
-        this.cartServices.Counter.next(responce.numOfCartItems )  ;
+        this.cartServices.Counter.set(responce.numOfCartItems )  ;
         console.log(responce);
       },
       error: (responce) => {
@@ -65,7 +65,7 @@ export class CartListComponent {
 
     this.cartServices.clearCart().subscribe({
       next:(responce)=>{
-        this.cartServices.Counter.next(responce.numOfCartItems )  ;
+        this.cartServices.Counter.set(responce.numOfCartItems )  ;
         this.loadCart();
       },
       error:(responce)=>{

@@ -9,5 +9,8 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './main-layout.component.css'
 })
 export class MainLayoutComponent {
-
+  GoToUp()
+  {
+    scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
 }

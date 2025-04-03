@@ -1,0 +1,14 @@
+.up-btn
+{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+  background-color: rebeccapurple;
+}
+
+.up-btn:hover
+{
+  background-color: rgb(78, 37, 120);
+  color: white;
+}

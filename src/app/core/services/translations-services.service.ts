@@ -19,8 +19,8 @@ export class TranslationsServicesService {
       }
       this.translateService.setDefaultLang(this.defaultLang);
       this.translateService.use(this.defaultLang);
+      this.changeDirection(this.defaultLang);
     }
-
   }
 
 
@@ -29,10 +29,24 @@ export class TranslationsServicesService {
     this.translateService.use(lang);
     if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem('lng', lang);
+
+      this.changeDirection(lang)
     }
+
   }
 
 
+  changeDirection(lang: string) {
+    if (lang == 'ar') {
+      document.documentElement.dir = 'rtl';
+      document.documentElement.lang = 'ar';
+    }
+    else {
+      document.documentElement.dir = 'ltr';
+      document.documentElement.lang = 'en';
+    }
+
+  }
 
 
 

@@ -290,3 +290,20 @@ button.toast-close-button {
     width: 25em;
   }
 }
+
+
+::-webkit-scrollbar
+{
+  width: 6px;
+}
+
+
+::-webkit-scrollbar-thumb{
+  border-radius: 15%;
+  background-color: #51A351;
+}
+
+
+::-webkit-scrollbar-track{
+  background-color: #e5e5e5;
+}

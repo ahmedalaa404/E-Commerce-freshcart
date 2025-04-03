@@ -1,11 +1,13 @@
 import { product } from '../../models/product';
 import { ProductsService } from './../../services/products.service';
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, signal, WritableSignal } from '@angular/core';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { CartService } from '../../../cart/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { SearchPipe } from '../../../../shared/pipes/search.pipe';
 import { FormsModule } from '@angular/forms';
+import { SIGNAL } from '@angular/core/primitives/signals';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -13,36 +15,40 @@ import { FormsModule } from '@angular/forms';
   imports: [ProductCardComponent,SearchPipe,FormsModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css',
+  // changeDetection:ChangeDetectionStrategy.OnPush // Input , output , any events
 })
-export class ProductListComponent {
+export class ProductListComponent  implements OnDestroy{
+
   private readonly ProductsService = inject(ProductsService);
   private readonly toastr = inject(ToastrService);
     valueSearch:string="";
-  allProduct: product[] = [];
-
-
+    allProduct: WritableSignal<product[]>= signal([]);
+    counter:WritableSignal<number>=signal<number>(0)  // this make init value
+    private readonly CartServices = inject(CartService);
   showSuccess() {
     this.toastr.success('Product Is Add To Cart Success', 'Process Is Success');
   }
 
+
+  CancleSubscription:Subscription= new Subscription();
 
   ngOnInit(): void {
     this.getAllProducts();
   }
 
   getAllProducts() {
-    this.ProductsService.getproducts().subscribe((data) => {
-      this.allProduct = data.data;
+    this.CancleSubscription= this.ProductsService.getproducts().subscribe((data) => {
+      this.allProduct .set( data.data);
 
 
     });
   }
-  private readonly CartServices = inject(CartService);
+
 
   addToCart(id: string) {
     this.CartServices.addProductToCart(id).subscribe({
       next: (resulte) => {
-        this.CartServices.Counter.next(resulte.numOfCartItems )  ;
+        this.CartServices.Counter.set(resulte.numOfCartItems )  ;
         this.showSuccess();
         console.log(resulte);
       },
@@ -51,4 +57,16 @@ export class ProductListComponent {
       },
     });
   }
+
+
+  ChangeCounter()
+  {
+    this.counter.update (x=>x+1 )
+  }
+  ngOnDestroy(): void {
+
+    this.CancleSubscription.unsubscribe();
+
+  }
+
 }

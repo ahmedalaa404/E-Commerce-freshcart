@@ -36,7 +36,8 @@ export class MainSliderComponent {
         items: 2
       }
     },
-    nav: true
+    nav: true,
+    rtl:true,
   }
 
 
